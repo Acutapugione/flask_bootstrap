@@ -5,5 +5,5 @@ from . import IDAutoIncrement
 
 class Post(IDAutoIncrement, table=True):
     created_at: datetime = Field(default_factory=datetime.now)
-    title: str
+    title: str = Field(nullable=False)
     content: str

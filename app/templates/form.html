@@ -1,0 +1,26 @@
+{% extends 'base.html' %}   
+
+{% block content %}
+    {% with messages = get_flashed_messages()  %}
+    <ul>
+        {% for message in messages %}
+            <li>
+                <span>
+                    <p>{{message}}</p>
+                </span>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endwith %}
+    <form action="" method="post">
+        {% for key, val in item.items() %}
+        <div>
+            <label for="{{key}}">{{key}}</label>
+            <input type="text" name="{{key}}" id="{{key}}">
+        </div>
+        {% endfor %}
+
+        <input type="submit" value="Send form data">
+    </form>
+
+{% endblock %}

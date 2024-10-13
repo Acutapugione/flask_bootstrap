@@ -1,8 +1,16 @@
-from app import app
+from app import app as frontend_app  # , app2 as backend_app
 
 
+# from werkzeug.middleware.dispatcher import DispatcherMiddleware
+# from werkzeug.serving import run_simple
 def main():
-    app.run(debug=True)
+    frontend_app.run(debug=True)
+
+
+# def main():
+#     application = DispatcherMiddleware(frontend_app, {"/api": backend_app})
+
+#     run_simple("localhost", 8080, application, use_reloader=True)
 
 
 if __name__ == "__main__":

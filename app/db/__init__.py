@@ -3,7 +3,7 @@ from sqlmodel import create_engine, Session, SQLModel, Field
 
 class Config:
     # CLASS PROPERTIES
-    ENGINE = create_engine("sqlite:///my_db.db", echo=True)
+    ENGINE = create_engine("sqlite:///my_db.db")  # , echo=True)
     SESSION = Session(bind=ENGINE)
 
     @classmethod
@@ -16,7 +16,7 @@ class Config:
     def restart_db(cls):
         SQLModel.metadata.drop_all(bind=cls.ENGINE)
         SQLModel.metadata.create_all(bind=cls.ENGINE)
-        cls.migrate()
+        # cls.migrate()
 
 
 class IDAutoIncrement(SQLModel, table=False):
